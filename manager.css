@@ -1,0 +1,321 @@
+/* ===================================================
+   店長専用ページ 全体スタイル (manager.css 完全版)
+=================================================== */
+
+/* 未認証時は非表示（JavaScript側で制御） */
+#secret-area {
+  display: none;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* -----------------------------------
+   ヘッダー & ポータルに戻るボタン
+----------------------------------- */
+header {
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 24px;
+}
+
+.back-to-portal-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fce4ec;
+  color: #e91e63;
+  border: 1.5px solid #f48fb1;
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(233, 30, 99, 0.08);
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #f8bbd0;
+  border-color: #e91e63;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.15);
+}
+
+.notice {
+  font-size: 0.85rem;
+  color: #e11d48;
+  background-color: #ffe4e6;
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 10px;
+}
+
+/* -----------------------------------
+   メインコンテンツ・カードレイアウト
+----------------------------------- */
+main {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.manager-card {
+  background-color: var(--card-bg, #ffffff);
+  border: 2px solid var(--border-pink, #f48fb1);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.08);
+}
+
+.manager-card h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--primary-pink, #e91e63);
+  border-bottom: 1.5px dashed var(--border-pink, #f48fb1);
+  padding-bottom: 6px;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--text-sub, #64748b);
+  margin-bottom: 16px;
+}
+
+/* スプレッドシート連携ボタン */
+.sheet-btn {
+  display: inline-block;
+  background-color: #107c41;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.sheet-btn:hover {
+  opacity: 0.85;
+}
+
+/* -----------------------------------
+   メンバー追加・選択フォーム
+----------------------------------- */
+.member-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1.5px solid var(--border-pink, #f48fb1);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.add-btn {
+  background-color: var(--primary-pink, #e91e63);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-btn:hover {
+  background-color: #d81b60;
+}
+
+.member-select-container select {
+  padding: 8px 12px;
+  border: 1.5px solid var(--border-pink, #f48fb1);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.delete-member-btn {
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.2s;
+}
+
+.delete-member-btn:hover {
+  background-color: #dc2626;
+}
+
+/* -----------------------------------
+   業務評価テーブル & チップ型選択ボタン
+----------------------------------- */
+.eval-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.eval-table th, 
+.eval-table td {
+  border: 1px solid var(--border-pink, #f48fb1);
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.eval-table th {
+  background-color: #fce4ec;
+  color: var(--text-dark, #1e293b);
+}
+
+.eval-table td {
+  background-color: #ffffff;
+}
+
+/* ラジオボタンエリア（チップ型デザイン） */
+.radio-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.eval-chip input[type="radio"] {
+  display: none; /* デフォルトの丸ボタンを非表示 */
+}
+
+.eval-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.eval-chip:hover {
+  transform: translateY(-2px);
+}
+
+/* ◯ / △ / ✕ 選択時のカラー切り替え */
+.chip-circle input[type="radio"]:checked + span { color: #ffffff; }
+.chip-circle:has(input[type="radio"]:checked) {
+  background-color: #107c41;
+  border-color: #107c41;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(16, 124, 65, 0.25);
+}
+
+.chip-triangle input[type="radio"]:checked + span { color: #ffffff; }
+.chip-triangle:has(input[type="radio"]:checked) {
+  background-color: #f59e0b;
+  border-color: #f59e0b;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.25);
+}
+
+.chip-cross input[type="radio"]:checked + span { color: #ffffff; }
+.chip-cross:has(input[type="radio"]:checked) {
+  background-color: #ef4444;
+  border-color: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.25);
+}
+
+.save-btn {
+  background-color: var(--primary-pink, #e91e63);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.save-btn:hover {
+  background-color: #d81b60;
+}
+
+/* -----------------------------------
+   全体スキル習熟度一覧表 (マトリクス / 横スワイプ＆左端固定)
+----------------------------------- */
+#matrix-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* iOSスムーズスクロール */
+  border-radius: 8px;
+  border: 1px solid var(--border-pink, #f48fb1);
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 500px; /* 横スワイプ発動用の最小幅 */
+}
+
+.matrix-table th, 
+.matrix-table td {
+  border-right: 1px solid var(--border-pink, #f48fb1);
+  border-bottom: 1px solid var(--border-pink, #f48fb1);
+  padding: 10px 14px;
+  text-align: center;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.matrix-table th {
+  background-color: #fce4ec;
+  color: var(--text-dark, #1e293b);
+  font-weight: bold;
+}
+
+/* 左端の「業務内容」列を固定（sticky） */
+.matrix-table td:first-child,
+.matrix-table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: #fff5f8;
+  font-weight: bold;
+  text-align: left;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.matrix-table th:first-child {
+  background-color: #fce4ec;
+  z-index: 3;
+}
+
+.matrix-table tr:last-child td {
+  border-bottom: none;
+}
+
+.matrix-table td:last-child,
+.matrix-table th:last-child {
+  border-right: none;
+}
