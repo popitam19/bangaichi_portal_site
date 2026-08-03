@@ -188,3 +188,36 @@ table.result-table:has(#splitTableBody)::before {
   color: #e11d48;
   margin-bottom: 6px;
 }
+
+/* -----------------------------------
+   ポータルサイトに戻るボタン（統一デザイン）
+----------------------------------- */
+.back-to-portal-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start; /* 左寄せ（中央にしたい場合は center に変更） */
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fce4ec;       /* 淡いピンクの背景色 */
+  color: #e91e63;                  /* 濃いピンクの文字色 */
+  border: 1.5px solid #f48fb1;     /* ピンクの細枠線 */
+  border-radius: 30px;             /* 丸みのあるカプセル形状 */
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;           /* 下線を消す */
+  box-shadow: 0 2px 6px rgba(233, 30, 99, 0.08);
+  transition: all 0.2s ease;
+}
+
+/* ホバー（タップ・マウス乗せ）時のアニメーション */
+.back-btn:hover {
+  background-color: #f8bbd0;
+  border-color: #e91e63;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.15);
+}
