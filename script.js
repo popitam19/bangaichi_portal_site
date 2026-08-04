@@ -3,14 +3,17 @@
  * @param {string} url - 遷移先のファイルパス
  */
 function navigateTo(url) {
-  // 既に作成済みのページ（レジ締め・ToDoリスト）はそのまま遷移する
-  if (url === 'bangaiti_calc-site.html' || url === 'todo_list.html') {
+  // 指定したページはそのまま遷移、指定していないページは「準備中」を表示する
+  if (
+    url === 'bangaiti_calc-site.html' ||   
+    url === 'todo_list.html' || 
+    url === 'manual.html'
+  ) {
     window.location.href = url;
     return;
   }
 
-  // その他の未作成ページ（シフト提出など）の場合
-  // ローカル環境（file://）ではファイルがないとエラーになるため、直接「準備中」を表示する
+  // その他の未作成ページは「準備中」を表示する
   if (window.location.protocol === 'file:') {
     showModal('この機能は現在準備中です。<br>公開まで今しばらくお待ちください。');
     return;

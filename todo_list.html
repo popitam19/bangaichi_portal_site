@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>業務 ToDo リスト</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="common.css">
   <link rel="stylesheet" href="todo_list.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
       <a href="index.html" class="back-btn">ポータルサイトに戻る</a>
     </div>
 
-    <h1>業務 ToDoリスト</h1>
+    <h1>✔️ 業務 ToDoリスト</h1>
     <div class="notice">
       業務内容を確認して、終わったらチェックをつけてください。
     </div>
@@ -91,6 +91,13 @@
               <span class="task-text">【追加】</span>
             </label>
           </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">【追加】</span>
+            </label>
+          </li>
         </ul>
       </div>
 
@@ -102,14 +109,28 @@
             <label class="todo-item">
               <input type="checkbox" onchange="toggleTask(this)">
               <span class="checkmark"></span>
-              <span class="task-text">【追加】</span>
+              <span class="task-text">【飲み客】おつまみラストオーダー(21:00)</span>
             </label>
           </li>
           <li>
             <label class="todo-item">
               <input type="checkbox" onchange="toggleTask(this)">
               <span class="checkmark"></span>
-              <span class="task-text">【追加】</span>
+              <span class="task-text">調味料補充</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">調味料を拭く</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">製氷ストップ</span>
             </label>
           </li>
         </ul>
@@ -123,14 +144,21 @@
             <label class="todo-item">
               <input type="checkbox" onchange="toggleTask(this)">
               <span class="checkmark"></span>
-              <span class="task-text">【追加】</span>
+              <span class="task-text">【飲み客】ラーメンラストオーダー(21:30)</span>
             </label>
           </li>
           <li>
             <label class="todo-item">
               <input type="checkbox" onchange="toggleTask(this)">
               <span class="checkmark"></span>
-              <span class="task-text">【追加】</span>
+              <span class="task-text">【飲み客】ドリンクラストオーダー(21:50)</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">新規客ストップ(22:00)</span>
             </label>
           </li>
         </ul>
@@ -144,21 +172,49 @@
             <label class="todo-item">
               <input type="checkbox" onchange="toggleTask(this)">
               <span class="checkmark"></span>
-              <span class="task-text">【追加】</span>
+              <span class="task-text">レジ締め</span>
             </label>
           </li>
           <li>
             <label class="todo-item">
               <input type="checkbox" onchange="toggleTask(this)">
               <span class="checkmark"></span>
-              <span class="task-text">【追加】</span>
+              <span class="task-text">箸補充</span>
             </label>
           </li>
           <li>
             <label class="todo-item">
               <input type="checkbox" onchange="toggleTask(this)">
               <span class="checkmark"></span>
-              <span class="task-text">【追加】</span>
+              <span class="task-text">ボトル内の水を捨てる</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">外ゴミ捨てる</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">氷捨てる</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">水ボトル拭く</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">パーテーションを拭いて元の位置に戻す</span>
             </label>
           </li>
           </li>

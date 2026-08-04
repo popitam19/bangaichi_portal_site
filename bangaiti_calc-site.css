@@ -1,45 +1,19 @@
-/* サイト全体 */
-body {
-  font-family: system-ui, sans-serif;
-  padding: 20px;
-  color: #111827;
-  background-color: #ffe4ec;
-}
-
-/* 見出し */
-h1 {
-  margin: 0 0 8px;
-}
-h2 {
-  margin: 0 0 20px;
-}
-h3 {
-  color: #e11d48;
-  font-size: 18px;
-  font-weight: bold;
-}
+/* ==========================================================================
+   レジ締め計算画面専用スタイル (bangaiti_calc-site.css)
+   ========================================================================== */
 
 /* 補足文字 */
 .muted {
-  color: #6b7280;
+  color: var(--text-sub);
   font-size: 14px;
 }
 .muted2 {
-  color: #e11d48;
+  color: var(--primary-pink);
   font-size: 14px;
   font-weight: bold;
 }
 
-/* 入力エリア */
-.card {
-  border: 1px solid #f5a3bd;
-  border-radius: 12px;
-  padding: 14px;
-  margin: 12px 0;
-  background-color: #ffffff;
-}
-
-/* 入力レイアウト（PC） */
+/* 入力グリッド */
 .grid {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -47,29 +21,11 @@ h3 {
   align-items: center;
 }
 
-/* 入力欄＋単位（本/枚） */
 .input-with-unit {
   display: flex;
   align-items: center;
   gap: 8px;
-  max-width: 260px; /* PCで伸びすぎ防止 */
-}
-
-/* 入力ボックス・選択・ボタン（基本設定） */
-input,
-select,
-button {
-  padding: 8px 10px;
-  margin: 4px;
-  border-radius: 10px;
-  box-sizing: border-box;
-}
-
-/* 入力ボックス個別のデザイン */
-input {
-  border: 2px solid #e11d48;
-  width: 100%;
-  background-color: #fff;
+  max-width: 260px;
 }
 
 .input-with-unit input {
@@ -80,16 +36,6 @@ input {
 .unit {
   white-space: nowrap;
   font-weight: bold;
-}
-
-/* ボタン個別のデザイン */
-button {
-  border: none;
-  background: #e11d48;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 10px 14px; /* クリックしやすさを優先 */
 }
 
 /* 注意文 */
@@ -105,53 +51,31 @@ button {
   width: 100%;
   margin-top: 8px;
   background-color: #ffd6e3;
-  border: 2px solid #000;
+  border: 2px solid var(--text-dark);
 }
+
 .result-table th {
-  background-color: #e11d48;
-  color: #000;
-  border: 1px solid #000;
+  background-color: var(--primary-pink);
+  color: #ffffff;
+  border: 1px solid var(--text-dark);
   padding: 8px;
   text-align: right;
 }
+
 .result-table td {
-  border: 1px solid #000;
+  border: 1px solid var(--text-dark);
   padding: 8px;
   text-align: right;
-  color: #000;
+  color: var(--text-dark);
   background-color: #ffd6e3;
 }
+
 .result-table th:first-child,
 .result-table td:first-child {
   text-align: left;
 }
 
-/* スマホ対応 */
-@media (max-width: 600px) {
-  body {
-    padding: 12px;
-  }
-
-  /* 1列にして崩れない */
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  label {
-    font-weight: 600;
-    margin-top: 8px;
-  }
-
-  .input-with-unit {
-    max-width: 100%; /* スマホは全幅OK */
-    margin-bottom: 8px;
-  }
-}
-
-/* ============================
-   内訳（splitTable）だけスマホで横スクロール対応
-   ============================ */
+/* 横スクロール対応（内訳表） */
 table.result-table:has(#splitTableBody) {
   display: inline-block;
   max-width: 100%;
@@ -163,20 +87,9 @@ table.result-table:has(#splitTableBody) {
   position: relative;
 }
 
-table.result-table:has(#splitTableBody) thead,
-table.result-table:has(#splitTableBody) tbody,
-table.result-table:has(#splitTableBody) tr {
-  width: max-content;
-}
-
 table.result-table:has(#splitTableBody) th,
 table.result-table:has(#splitTableBody) td {
   min-width: 88px;
-}
-
-table.result-table:has(#splitTableBody) th:first-child,
-table.result-table:has(#splitTableBody) td:first-child {
-  min-width: 90px;
 }
 
 table.result-table:has(#splitTableBody)::before {
@@ -185,39 +98,22 @@ table.result-table:has(#splitTableBody)::before {
   text-align: right;
   font-size: 12px;
   font-weight: bold;
-  color: #e11d48;
+  color: var(--primary-pink);
   margin-bottom: 6px;
 }
 
-/* -----------------------------------
-   ポータルサイトに戻るボタン（統一デザイン）
------------------------------------ */
-.back-to-portal-container {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: flex-start; /* 左寄せ（中央にしたい場合は center に変更） */
-}
-
-.back-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fce4ec;       /* 淡いピンクの背景色 */
-  color: #e91e63;                  /* 濃いピンクの文字色 */
-  border: 1.5px solid #f48fb1;     /* ピンクの細枠線 */
-  border-radius: 30px;             /* 丸みのあるカプセル形状 */
-  padding: 8px 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  text-decoration: none;           /* 下線を消す */
-  box-shadow: 0 2px 6px rgba(233, 30, 99, 0.08);
-  transition: all 0.2s ease;
-}
-
-/* ホバー（タップ・マウス乗せ）時のアニメーション */
-.back-btn:hover {
-  background-color: #f8bbd0;
-  border-color: #e91e63;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.15);
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  label {
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  .input-with-unit {
+    max-width: 100%;
+    margin-bottom: 8px;
+  }
 }

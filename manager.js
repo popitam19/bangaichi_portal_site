@@ -1,10 +1,18 @@
-// 業務リストの定義
+// 業務リストの定義（ここを変更すると業務名が変わります）
 const TASKS = [
-  { id: 'task1', name: '【追加】' },
-  { id: 'task2', name: '【追加】' },
-  { id: 'task3', name: '【追加】' },
-  { id: 'task4', name: '【追加】' },
-  { id: 'task5', name: '【追加】' }
+  { id: 'task1', name: '【ラーメン】オーダー受付・レジ対応' },
+  { id: 'task2', name: '【ラーメン】提供' },
+  { id: 'task3', name: '【飲み】オーダー受付' },
+  { id: 'task4', name: '【飲み】オーダー入力(iPad)' },
+  { id: 'task5', name: '【飲み】おつまみ提供' },
+  { id: 'task6', name: '【飲み】ドリンク提供' },
+  { id: 'task7', name: '【飲み】会計対応' },
+  { id: 'task8', name: '【業務】ラストオーダー確認' },
+  { id: 'task9', name: '【業務】閉店作業' },
+  { id: 'task10', name: '【業務】レジ締め' },
+  { id: 'task11', name: '【共通】キッチン指示品(補充・運搬)' },
+  { id: 'task12', name: '【調理】ドリンク作成' },
+  { id: 'task13', name: '【調理】餃子調理' }
 ];
 
 // 画面読み込み時の処理
@@ -14,12 +22,50 @@ window.addEventListener('DOMContentLoaded', () => {
   if (urlParams.get('auth') === 'true') {
     document.getElementById('secret-area').style.display = 'block';
     renderMemberList();
+    renderEvalForm();   // 評価フォームの自動生成
     renderMatrixTable(); // 一覧表の初期描画
   } else {
     alert("正規の画面からアクセスしてください。");
     window.location.href = "index.html";
   }
 });
+
+/**
+ * 評価フォームをJavaScriptで自動生成する (5段階対応)
+ */
+function renderEvalForm() {
+  const tbody = document.getElementById('eval-tbody');
+  if (!tbody) return;
+
+  let html = '';
+  TASKS.forEach(task => {
+    html += `
+      <tr>
+        <td>${task.name}</td>
+        <td>
+          <div class="radio-group">
+            <label class="eval-chip chip-double-circle">
+              <input type="radio" name="${task.id}" value="◎"> <span>◎</span>
+            </label>
+            <label class="eval-chip chip-circle">
+              <input type="radio" name="${task.id}" value="◯"> <span>◯</span>
+            </label>
+            <label class="eval-chip chip-triangle">
+              <input type="radio" name="${task.id}" value="△"> <span>△</span>
+            </label>
+            <label class="eval-chip chip-triangle-dark">
+              <input type="radio" name="${task.id}" value="▲"> <span>▲</span>
+            </label>
+            <label class="eval-chip chip-cross">
+              <input type="radio" name="${task.id}" value="✕"> <span>✕</span>
+            </label>
+          </div>
+        </td>
+      </tr>
+    `;
+  });
+  tbody.innerHTML = html;
+}
 
 /**
  * メンバーリストを LocalStorage から読み込んでセレクトボックスを作る
@@ -189,9 +235,11 @@ function renderMatrixTable() {
       
       // 評価に応じて色付けの演出（見やすさ向上）
       let colorStyle = '';
-      if (evalValue === '◯') colorStyle = 'color: #107c41; font-weight: bold;';
-      if (evalValue === '△') colorStyle = 'color: #d97706; font-weight: bold;';
-      if (evalValue === '✕') colorStyle = 'color: #dc2626; font-weight: bold;';
+      if (evalValue === '◎') colorStyle = 'color: #2563eb; font-weight: bold;'; // 青
+      if (evalValue === '◯') colorStyle = 'color: #107c41; font-weight: bold;'; // 緑
+      if (evalValue === '△') colorStyle = 'color: #f59e0b; font-weight: bold;'; // 黄
+      if (evalValue === '▲') colorStyle = 'color: #ea580c; font-weight: bold;'; // 橙
+      if (evalValue === '✕') colorStyle = 'color: #dc2626; font-weight: bold;'; // 赤
 
       html += `<td style="${colorStyle}">${evalValue}</td>`;
     });

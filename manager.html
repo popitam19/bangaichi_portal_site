@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>店舗管理・確認用ページ</title>
-  <link rel="stylesheet" href="style.css">
+  <title>店舗管理・確認</title>
+  <link rel="stylesheet" href="common.css">
   <link rel="stylesheet" href="manager.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
       <div class="back-to-portal-container">
         <a href="index.html" class="back-btn">ポータルサイトに戻る</a>
       </div>
-      <h1>🔑 店舗管理・確認用ページ</h1>
+      <h1>🔑 店舗管理・確認</h1>
     </header>
 
     <main>
@@ -31,7 +31,7 @@
 
       <!-- 機能2: アルバイトメンバーの仕事評価 -->
       <div class="manager-card">
-        <h2>👥 アルバイトメンバー仕事評価シート</h2>
+        <h2>👥 アルバイトメンバー業務評価</h2>
         
         <!-- メンバー追加 -->
         <div class="add-member-container" style="margin-bottom: 20px;">
@@ -43,7 +43,7 @@
         </div>
 
         <p class="card-desc">
-          評価対象のメンバーを選択し、各業務の習熟度（◯/△/✕）を記録してください。
+          評価対象のメンバーを選択し、各業務の習熟度（◎/◯/△/▲/✕）を記録してください。
         </p>
 
         <!-- メンバー選択 -->
@@ -55,97 +55,18 @@
           <button type="button" class="delete-member-btn" onclick="deleteCurrentMember()">選択中のメンバーを削除</button>
         </div>
 
-        <!-- 業務評価入力フォーム（選択すると表示されます） -->
+        <!-- 業務評価入力フォーム（JavaScriptで内部を生成） -->
         <div id="eval-form-container" style="display: none; margin-top: 20px;">
           <form id="eval-form">
             <table class="eval-table">
               <thead>
                 <tr>
                   <th>業務内容</th>
-                  <th>評価 ( ◯ / △ / ✕ )</th>
+                  <th>評価 ( ◎ / ◯ / △ / ▲ / ✕ )</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>【追加】</td>
-                  <td>
-                    <div class="radio-group">
-                      <label class="eval-chip chip-circle">
-                        <input type="radio" name="task1" value="◯"> <span>◯</span>
-                      </label>
-                      <label class="eval-chip chip-triangle">
-                        <input type="radio" name="task1" value="△"> <span>△</span>
-                      </label>
-                      <label class="eval-chip chip-cross">
-                        <input type="radio" name="task1" value="✕"> <span>✕</span>
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>【追加】</td>
-                  <td>
-                    <div class="radio-group">
-                      <label class="eval-chip chip-circle">
-                        <input type="radio" name="task2" value="◯"> <span>◯</span>
-                      </label>
-                      <label class="eval-chip chip-triangle">
-                        <input type="radio" name="task2" value="△"> <span>△</span>
-                      </label>
-                      <label class="eval-chip chip-cross">
-                        <input type="radio" name="task2" value="✕"> <span>✕</span>
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>【追加】</td>
-                  <td>
-                    <div class="radio-group">
-                      <label class="eval-chip chip-circle">
-                        <input type="radio" name="task3" value="◯"> <span>◯</span>
-                      </label>
-                      <label class="eval-chip chip-triangle">
-                        <input type="radio" name="task3" value="△"> <span>△</span>
-                      </label>
-                      <label class="eval-chip chip-cross">
-                        <input type="radio" name="task3" value="✕"> <span>✕</span>
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>【追加】</td>
-                  <td>
-                    <div class="radio-group">
-                      <label class="eval-chip chip-circle">
-                        <input type="radio" name="task4" value="◯"> <span>◯</span>
-                      </label>
-                      <label class="eval-chip chip-triangle">
-                        <input type="radio" name="task4" value="△"> <span>△</span>
-                      </label>
-                      <label class="eval-chip chip-cross">
-                        <input type="radio" name="task4" value="✕"> <span>✕</span>
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>【追加】</td>
-                  <td>
-                    <div class="radio-group">
-                      <label class="eval-chip chip-circle">
-                        <input type="radio" name="task5" value="◯"> <span>◯</span>
-                      </label>
-                      <label class="eval-chip chip-triangle">
-                        <input type="radio" name="task5" value="△"> <span>△</span>
-                      </label>
-                      <label class="eval-chip chip-cross">
-                        <input type="radio" name="task5" value="✕"> <span>✕</span>
-                      </label>
-                    </div>
-                  </td>
-                </tr>
+              <tbody id="eval-tbody">
+                <!-- JavaScriptで動的に追加されます -->
               </tbody>
             </table>
 
@@ -156,12 +77,11 @@
         </div>
       </div>
 
-      <!-- 機能3: ▼新規追加 全メンバーの評価一覧表（マトリクス） -->
+      <!-- 機能3: 全メンバーの評価一覧表 -->
       <div class="manager-card">
-        <h2>📋 全体スキル習熟度一覧表</h2>
-        <p class="card-desc">縦軸が業務、横軸が各メンバーの評価一覧です。</p>
+        <h2>📋 全メンバー業務習熟度一覧表</h2>
         <div id="matrix-container" style="overflow-x: auto;">
-          <!-- ここにJavaScriptで全体表が自動生成されます -->
+          <!-- JavaScriptで全体表が自動生成されます -->
         </div>
       </div>
 
