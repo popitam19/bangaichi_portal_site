@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>店舗管理・確認</title>
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="manager.css" />
+  </head>
+  <body>
+    <div id="secret-area">
+      <header>
+        <div class="back-to-portal-container">
+          <a href="index.html" class="back-btn">ポータルサイトに戻る</a>
+        </div>
+        <h1>🔑 店舗管理・確認</h1>
+      </header>
+
+      <main>
+        <!-- 機能1: スプレッドシート連携 -->
+        <div class="manager-card">
+          <h2>📊 シフト提出フォーム作成</h2>
+          <p>
+            シフト提出フォーム作成用Google スプレッドシートへジャンプします。
+          </p>
+          <div style="margin-top: 16px">
+            <a
+              href="https://docs.google.com/spreadsheets/d/1SZbUbof7wzjCV6oG5tTdvonmNe8Pz9E8D8TVUZTuvog/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="sheet-btn"
+            >
+              🟢 Google スプレッドシートを開く ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- 機能2: アルバイトメンバーの仕事評価 -->
+        <div class="manager-card">
+          <h2>👥 アルバイトメンバー業務評価</h2>
+
+          <!-- メンバー追加 -->
+          <div class="add-member-container" style="margin-bottom: 20px">
+            <label for="new-member-name"
+              ><strong>メンバーを追加：</strong></label
+            >
+            <div style="display: flex; gap: 8px; margin-top: 8px">
+              <input
+                type="text"
+                id="new-member-name"
+                placeholder="氏名"
+                class="member-input"
+              />
+              <button type="button" class="add-btn" onclick="addMember()">
+                追加
+              </button>
+            </div>
+          </div>
+
+          <p class="card-desc">
+            評価対象のメンバーを選択し、各業務の習熟度（◎/◯/△/▲/✕）を記録してください。
+          </p>
+
+          <!-- メンバー選択 -->
+          <div class="member-select-container">
+            <label for="member-select"
+              ><strong>評価するメンバー：</strong></label
+            >
+            <select id="member-select" onchange="loadMemberEvaluation()">
+              <option value="">-- メンバーを選択 --</option>
+            </select>
+            <button
+              type="button"
+              class="delete-member-btn"
+              onclick="deleteCurrentMember()"
+            >
+              選択中のメンバーを削除
+            </button>
+          </div>
+
+          <!-- 業務評価入力フォーム（JavaScriptで内部を生成） -->
+          <div id="eval-form-container" style="display: none; margin-top: 20px">
+            <form id="eval-form">
+              <table class="eval-table">
+                <thead>
+                  <tr>
+                    <th>業務内容</th>
+                    <th>評価 ( ◎ / ◯ / △ / ▲ / ✕ )</th>
+                  </tr>
+                </thead>
+                <tbody id="eval-tbody">
+                  <!-- JavaScriptで動的に追加されます -->
+                </tbody>
+              </table>
+
+              <div style="margin-top: 16px; text-align: right">
+                <button
+                  type="button"
+                  class="save-btn"
+                  onclick="saveEvaluation()"
+                >
+                  評価を保存する
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- 機能3: 全メンバーの評価一覧表 -->
+        <div class="manager-card">
+          <h2>📋 全メンバー業務習熟度一覧表</h2>
+          <div id="matrix-container" style="overflow-x: auto">
+            <!-- JavaScriptで全体表が自動生成されます -->
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="manager.js"></script>
+  </body>
+</html>

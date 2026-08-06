@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>業務 ToDo リスト</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="todo_list.css">
+</head>
+<body>
+
+  <!-- ヘッダー部分 -->
+  <header>
+    <!-- ポータルサイトに戻るボタン -->
+    <div class="back-to-portal-container">
+      <a href="index.html" class="back-btn">ポータルサイトに戻る</a>
+    </div>
+
+    <h1>✔️ 業務 ToDoリスト</h1>
+    <div class="notice">
+      業務内容を確認して、終わったらチェックをつけてください。
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="todo-main">
+    
+    <!-- 時間帯切り替えタブ -->
+    <div class="tab-container">
+      <button class="tab-btn active" onclick="switchTab('morning')">朝出勤時</button>
+      <button class="tab-btn" onclick="switchTab('noon')">昼ピーク時</button>
+
+      <button class="tab-btn" onclick="switchTab('night')">夜21時頃</button>
+      <button class="tab-btn" onclick="switchTab('closing-soon')">閉店間近</button>
+      <button class="tab-btn" onclick="switchTab('closed')">閉店後</button>
+    </div>
+
+    <!-- 一括解除アクションエリア -->
+    <div class="action-bar">
+      <button type="button" class="reset-btn" onclick="resetAllChecks()">
+        🔄 全てのチェックを解除する
+      </button>
+    </div>
+
+    <!-- ToDoリスト表示エリア（時間帯ごとにグループ化） -->
+    <div class="card todo-card">
+      
+      <!-- 朝出勤時 -->
+      <div id="morning" class="todo-group active">
+        <h2>🌅 朝出勤時のタスク</h2>
+        <ul class="todo-list">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">【追加】</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">【追加】</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">【追加】</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 昼ピーク時 -->
+      <div id="noon" class="todo-group">
+        <h2>☀️ 昼ピーク時のタスク</h2>
+        <ul class="todo-list">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">【追加】</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">【追加】</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">【追加】</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 夜21時頃 -->
+      <div id="night" class="todo-group">
+        <h2>🌙 夜21時頃のタスク</h2>
+        <ul class="todo-list">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">【飲み客】おつまみラストオーダー(21:00)</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">調味料補充</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">調味料を拭く</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">製氷ストップ</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 閉店間近 -->
+      <div id="closing-soon" class="todo-group">
+        <h2>⏳ 閉店間近のタスク</h2>
+        <ul class="todo-list">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">【飲み客】ラーメンラストオーダー(21:30)</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">【飲み客】ドリンクラストオーダー(21:50)</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">新規客ストップ(22:00)</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 閉店後 -->
+      <div id="closed" class="todo-group">
+        <h2>🔒 閉店後のタスク</h2>
+        <ul class="todo-list">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">レジ締め</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">箸補充</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">ボトル内の水を捨てる</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">外ゴミ捨てる</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">氷捨てる</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">水ボトル拭く</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <span class="checkmark"></span>
+              <span class="task-text">パーテーションを拭いて元の位置に戻す</span>
+            </label>
+          </li>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="todo_list.js"></script>
+</body>
+</html>

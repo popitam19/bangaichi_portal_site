@@ -1,0 +1,165 @@
+/* ==========================================================================
+   店舗管理画面専用スタイル (manager.css)
+   ========================================================================== */
+
+#secret-area {
+  display: none;
+  width: 100%;
+  max-width: 700px;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-bottom: 16px;
+}
+
+/* スプレッドシート連携ボタン */
+.sheet-btn {
+  display: inline-block;
+  background-color: var(--success-green);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.sheet-btn:hover {
+  opacity: 0.85;
+}
+
+/* メンバー追加・選択 */
+.member-input {
+  flex: 1;
+}
+
+.member-select-container select {
+  background-color: #ffffff;
+}
+
+.delete-member-btn {
+  background-color: var(--danger-red);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: opacity 0.2s;
+}
+
+.delete-member-btn:hover {
+  opacity: 0.85;
+}
+
+/* 業務評価テーブル */
+.eval-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.eval-table th, 
+.eval-table td {
+  border: 1px solid var(--border-pink);
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.eval-table th {
+  background-color: #fce4ec;
+  color: var(--text-dark);
+}
+
+/* チップ型選択ボタン */
+.radio-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.eval-chip input[type="radio"] {
+  display: none;
+}
+
+.eval-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.eval-chip:hover {
+  transform: translateY(-2px);
+}
+
+.chip-double-circle:has(input[type="radio"]:checked) { background-color: #2563eb; border-color: #2563eb; color: #fff; }
+.chip-circle:has(input[type="radio"]:checked) { background-color: var(--success-green); border-color: var(--success-green); color: #fff; }
+.chip-triangle:has(input[type="radio"]:checked) { background-color: #f59e0b; border-color: #f59e0b; color: #fff; }
+.chip-triangle-dark:has(input[type="radio"]:checked) { background-color: #ea580c; border-color: #ea580c; color: #fff; }
+.chip-cross:has(input[type="radio"]:checked) { background-color: var(--danger-red); border-color: var(--danger-red); color: #fff; }
+
+/* 全体習熟度一覧表（固定列対応） */
+#matrix-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+  border: 1px solid var(--border-pink);
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 500px;
+}
+
+.matrix-table th, 
+.matrix-table td {
+  border-right: 1px solid var(--border-pink);
+  border-bottom: 1px solid var(--border-pink);
+  padding: 10px 14px;
+  text-align: center;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.matrix-table th {
+  background-color: #fce4ec;
+  color: var(--text-dark);
+  font-weight: bold;
+}
+
+.matrix-table td:first-child,
+.matrix-table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: #fff5f8;
+  font-weight: bold;
+  text-align: left;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.matrix-table th:first-child {
+  background-color: #fce4ec;
+  z-index: 3;
+}

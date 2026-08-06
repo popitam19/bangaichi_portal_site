@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>各種マニュアル - 番外地 業務ポータルサイト</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="manual.css">
+</head>
+<body>
+
+  <!-- ヘッダーエリア -->
+  <header>
+    <!-- 共通：ポータルサイトに戻るボタン -->
+    <div class="back-to-portal-container">
+      <a href="index.html" class="back-btn">ポータルサイトに戻る</a>
+    </div>
+
+    <h1>📖 各種マニュアル</h1>
+    <div class="notice">
+      確認したい業務のボタンを押してください。該当のマニュアルを表示します。
+    </div>
+  </header>
+
+  <main>
+    <!-- 業務選択ボタンエリア -->
+    <nav class="manual-nav">
+      <button type="button" class="manual-tab-btn" data-target="task-register-close">レジ締め</button>
+      <button type="button" class="manual-tab-btn" data-target="task-register-minus">レジマイナス</button>
+      <button type="button" class="manual-tab-btn" data-target="task-order-ipad">ドリンク作成</button>
+      <button type="button" class="manual-tab-btn" data-target="task-gyoza">餃子調理</button>
+    </nav>
+
+    <!-- マニュアル表示領域 -->
+    <div class="manual-content-wrapper">
+
+      <!-- 初期案内メッセージ -->
+      <div id="default-message" class="card default-message">
+        <p>上のボタンから確認したい業務を選択してください。</p>
+      </div>
+
+      <!-- レジ締め -->
+      <section id="task-register-close" class="card manual-item">
+        <h2>💰 レジ締め手順</h2>
+        <div class="manual-steps">
+          <div class="step-card">
+            <span class="step-badge">STEP 0</span>
+            <h3>用意するもの</h3>
+            <p>iPad、カード決済端末、緑の封筒、10円50円100円の棒金入れ、ペン、</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">STEP 1</span>
+            <h3>タイトル</h3>
+            <p>内容</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">STEP 2</span>
+            <h3>タイトル</h3>
+            <p>内容</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- レジマイナス -->
+      <section id="task-register-minus" class="card manual-item">
+        <h2>🧾 レジマイナス手順</h2>
+        <div class="manual-steps">
+          <div class="step-card">
+            <span class="step-badge">STEP 1</span>
+            <h3>タイトル</h3>
+            <p>内容</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">STEP 2</span>
+            <h3>タイトル</h3>
+            <p>内容</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">STEP 3</span>
+            <h3>タイトル</h3>
+            <p>内容</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ドリンク作成 -->
+      <section id="task-order-ipad" class="card manual-item">
+        <h2>🍺 ドリンク作成</h2>
+        <div class="manual-steps">
+          <div class="step-card">
+            <span class="step-badge">ビール</span>
+            <h3>生ビール</h3>
+            <p>内容</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">ハイボール</span>
+            <h3>ハイボール</h3>
+            <p>内容</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">サワー</span>
+            <h3>レモンサワー、</h3>
+            <p>内容</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 餃子調理 -->
+      <section id="task-gyoza" class="card manual-item">
+        <h2>🥟 餃子調理</h2>
+        <div class="manual-steps">
+          <div class="step-card">
+            <span class="step-badge">STEP 1</span>
+            <h3>タイトル</h3>
+            <p>内容</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">STEP 2</span>
+            <h3>タイトル</h3>
+            <p>内容</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">STEP 3</span>
+            <h3>タイトル</h3>
+            <p>内容</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="manual.js"></script>
+</body>
+</html>

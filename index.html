@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>番外地 業務ポータルサイト</title>
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ヘッダー部分 -->
+    <header>
+      <h1>番外地 業務ポータルサイト</h1>
+      <div class="meta-info">
+        作成者：大川 礼 &nbsp;&nbsp; 最終更新日：2026年8月5日
+      </div>
+      <div class="notice">
+        利用したい業務のボタンを押してください。各機能ページへ移動します。
+      </div>
+    </header>
+
+    <!-- モーダル（準備中メッセージ用） -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div class="modal-content">
+        <div class="modal-icon">🚧</div>
+        <h2>準備中です</h2>
+        <p id="modal-message">該当のページは現在準備中です。</p>
+        <button type="button" class="modal-close-btn" onclick="closeModal()">
+          閉じる
+        </button>
+      </div>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <main>
+      <!-- レジ締めページへのボタン -->
+      <div class="menu-card" onclick="navigateTo('bangaiti_calc-site.html')">
+        <div class="card-info">
+          <h2><span>💰</span> レジ締め計算ツール</h2>
+          <p>レジ締めの計算・結果表示を行います。</p>
+        </div>
+        <div class="card-btn">ページを開く</div>
+      </div>
+
+      <!-- ToDoリストページへのボタン -->
+      <div class="menu-card" onclick="navigateTo('todo_list.html')">
+        <div class="card-info">
+          <h2><span>✔️</span>業務 ToDo リスト</h2>
+          <p>ホール業務の ToDo リストを表示します。</p>
+        </div>
+        <div class="card-btn">ページを開く</div>
+      </div>
+
+      <!-- マニュアルページへのボタン -->
+      <div class="menu-card" onclick="navigateTo('manual.html')">
+        <div class="card-info">
+          <h2><span>📖</span>各種マニュアル</h2>
+          <p>各種ホール業務のマニュアルを表示します。</p>
+        </div>
+        <div class="card-btn">ページを開く</div>
+      </div>
+
+      <!-- シフト提出ページへのボタン -->
+      <div class="menu-card" onclick="navigateTo('shift.html')">
+        <div class="card-info">
+          <h2><span>📅</span> シフト提出</h2>
+          <p>来月の出勤希望日時を入力してシフトを提出します。</p>
+        </div>
+        <div class="card-btn">ページを開く</div>
+      </div>
+
+      <!-- 店舗管理・確認へのボタン -->
+      <div class="menu-card" onclick="openManagerPage()">
+        <div class="card-info">
+          <h2><span>🔑</span> 店舗管理・確認</h2>
+          <p>店舗の管理者専用のページです。（パスワードが必要です）</p>
+        </div>
+        <div class="card-btn">ページを開く</div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

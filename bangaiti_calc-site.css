@@ -1,0 +1,119 @@
+/* ==========================================================================
+   レジ締め計算画面専用スタイル (bangaiti_calc-site.css)
+   ========================================================================== */
+
+/* 補足文字 */
+.muted {
+  color: var(--text-sub);
+  font-size: 14px;
+}
+.muted2 {
+  color: var(--primary-pink);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* 入力グリッド */
+.grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 8px 12px;
+  align-items: center;
+}
+
+.input-with-unit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 260px;
+}
+
+.input-with-unit input {
+  flex: 1;
+  min-width: 0;
+}
+
+.unit {
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+/* 注意文 */
+.warn {
+  color: #b45309;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* 結果表 */
+.result-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 8px;
+  background-color: #ffd6e3;
+  border: 2px solid var(--text-dark);
+}
+
+.result-table th {
+  background-color: var(--primary-pink);
+  color: #ffffff;
+  border: 1px solid var(--text-dark);
+  padding: 8px;
+  text-align: right;
+}
+
+.result-table td {
+  border: 1px solid var(--text-dark);
+  padding: 8px;
+  text-align: right;
+  color: var(--text-dark);
+  background-color: #ffd6e3;
+}
+
+.result-table th:first-child,
+.result-table td:first-child {
+  text-align: left;
+}
+
+/* 横スクロール対応（内訳表） */
+table.result-table:has(#splitTableBody) {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  width: max-content;
+  background-color: transparent;
+  position: relative;
+}
+
+table.result-table:has(#splitTableBody) th,
+table.result-table:has(#splitTableBody) td {
+  min-width: 88px;
+}
+
+table.result-table:has(#splitTableBody)::before {
+  content: "👉 横にスワイプできます";
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--primary-pink);
+  margin-bottom: 6px;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  label {
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  .input-with-unit {
+    max-width: 100%;
+    margin-bottom: 8px;
+  }
+}

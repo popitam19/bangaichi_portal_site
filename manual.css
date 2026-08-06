@@ -1,0 +1,116 @@
+/* ==========================================================================
+   マニュアルページ専用スタイル (manual.css)
+   ========================================================================== */
+
+/* 業務選択ボタンエリア（上の案内テキストとの余白を追加） */
+.manual-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* 非選択時のタブボタン */
+.manual-tab-btn {
+  background-color: #ffffff;
+  color: var(--primary-pink);
+  border: 1.5px solid var(--border-pink);
+  border-radius: var(--radius-btn);
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(233, 30, 99, 0.05);
+}
+
+.manual-tab-btn:hover {
+  background-color: var(--bg-color);
+  border-color: var(--primary-pink);
+  transform: translateY(-1px);
+}
+
+/* 選択中のタブボタン */
+.manual-tab-btn.active {
+  background-color: var(--primary-pink);
+  color: #ffffff;
+  border-color: var(--primary-pink);
+  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.25);
+}
+
+/* 初期案内メッセージカード */
+.default-message {
+  text-align: center;
+  color: var(--text-sub);
+  padding: 32px 20px;
+}
+
+.default-message p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* マニュアル切替設定 */
+.manual-item {
+  display: none;
+}
+
+.manual-item.active {
+  display: block;
+  animation: fadeIn 0.25s ease;
+}
+
+/* 手順ステップカード構造 */
+.manual-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.step-card {
+  background-color: #fff5f8;
+  border: 1px solid var(--border-pink);
+  border-left: 5px solid var(--primary-pink);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+/* STEPバッジ */
+.step-badge {
+  display: inline-block;
+  background-color: var(--primary-pink);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.step-card h3 {
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  margin: 0 0 6px 0;
+}
+
+.step-card p {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* フェードイン表示 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
