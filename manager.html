@@ -35,50 +35,230 @@
           </div>
         </div>
 
-        <!-- 機能2: アルバイトメンバーの仕事評価 -->
+        <!-- 機能2: アルバイトメンバー一括管理（追加・削除をここに集約） -->
         <div class="manager-card">
-          <h2>👥 アルバイトメンバー業務評価</h2>
+          <h2>👥 アルバイトメンバー管理</h2>
+          <p class="card-desc">
+            アルバイトメンバーの追加および削除を行います。ここで変更した内容は下の各ツールに共通で反映されます。
+          </p>
 
           <!-- メンバー追加 -->
           <div class="add-member-container" style="margin-bottom: 20px">
-            <label for="new-member-name"
+            <label for="common-member-name"
               ><strong>メンバーを追加：</strong></label
             >
             <div style="display: flex; gap: 8px; margin-top: 8px">
               <input
                 type="text"
-                id="new-member-name"
-                placeholder="氏名"
+                id="common-member-name"
+                placeholder="氏名を入力"
                 class="member-input"
               />
-              <button type="button" class="add-btn" onclick="addMember()">
+              <button
+                type="button"
+                class="action-btn"
+                onclick="addCommonMember()"
+              >
                 追加
               </button>
             </div>
           </div>
 
+          <!-- メンバー削除（一括集約） -->
+          <div class="member-select-container">
+            <label for="common-delete-select"
+              ><strong>メンバーを削除：</strong></label
+            >
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-top: 8px;
+              "
+            >
+              <select id="common-delete-select" style="flex: 1">
+                <option value="">-- 削除するメンバーを選択 --</option>
+              </select>
+              <button
+                type="button"
+                class="delete-member-btn"
+                onclick="deleteCommonMember()"
+              >
+                削除する
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 機能3: アルバイト給料計算ツール -->
+        <div class="manager-card">
+          <h2>💴 アルバイト給料計算ツール</h2>
+
+          <p class="card-desc">
+            対象のメンバーを選択し、時給設定および出退勤記録を入力してください。
+          </p>
+
+          <!-- メンバー選択（削除ボタンを撤去し、選択のみにスッキリ化） -->
+          <div class="member-select-container">
+            <label for="payroll-member-select"
+              ><strong>給料計算するメンバー：</strong></label
+            >
+            <div style="margin-top: 8px">
+              <select
+                id="payroll-member-select"
+                onchange="loadPayrollMemberData()"
+                style="width: 100%"
+              >
+                <option value="">-- メンバーを選択 --</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 選択したメンバーの給料計算シートエリア（未選択時は非表示） -->
+          <div
+            id="payroll-form-container"
+            style="
+              display: none;
+              border-top: 2px dashed var(--border-pink);
+              margin-top: 20px;
+              padding-top: 20px;
+            "
+          >
+            <!-- 選択中メンバーのヘッダー＆自動保存ステータス -->
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 16px;
+              "
+            >
+              <div
+                style="
+                  font-weight: bold;
+                  font-size: 1.1rem;
+                  color: var(--primary-pink);
+                "
+              >
+                👤 選択中：<span id="current-member-display">-</span>
+                さんの給料計算シート
+              </div>
+              <div
+                id="auto-save-status"
+                style="
+                  font-size: 0.85rem;
+                  color: var(--success-green);
+                  font-weight: bold;
+                  transition: opacity 0.3s;
+                  opacity: 0;
+                "
+              >
+                ✓ 自動保存されました
+              </div>
+            </div>
+
+            <!-- 基本情報設定（時給・交通費） -->
+            <div class="payroll-config-grid">
+              <div class="form-group">
+                <label for="hourly-wage">時給（円）：</label>
+                <input type="number" id="hourly-wage" value="0" min="0" />
+              </div>
+              <div class="form-group">
+                <label for="transport-one-way">交通費（片道・円）：</label>
+                <input type="number" id="transport-one-way" value="0" min="0" />
+              </div>
+            </div>
+
+            <!-- 給料合計表示エリア -->
+            <div class="payroll-summary-box">
+              <div class="summary-total-line">
+                <span class="total-label">今月の支給額：</span>
+                <span class="total-amount" id="grand-total">¥0</span>
+              </div>
+              <div class="summary-breakdown">
+                <div>基本給合計：<span id="total-base-pay">¥0</span></div>
+                <div>交通費合計：<span id="total-transport">¥0</span></div>
+              </div>
+            </div>
+
+            <!-- 明細テーブル -->
+            <div class="payroll-table-wrapper">
+              <table class="payroll-table">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>出勤</th>
+                    <th>休憩開始</th>
+                    <th>休憩終了</th>
+                    <th>退勤</th>
+                    <th>拘束</th>
+                    <th>休憩</th>
+                    <th>勤務</th>
+                    <th>基本給</th>
+                    <th>交通費</th>
+                    <th>給料</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="payroll-tbody">
+                  <!-- JavaScriptで動的生成 -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 下部アクションエリア -->
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 16px;
+              "
+            >
+              <button type="button" class="action-btn" id="add-payroll-row-btn">
+                ＋ 勤務日を追加
+              </button>
+
+              <button
+                type="button"
+                class="delete-member-btn"
+                onclick="clearPayrollInputs()"
+                style="padding: 10px 16px; font-size: 0.95rem"
+              >
+                🧹 入力内容をクリア
+              </button>
+            </div>
+          </div>
+          <!-- /#payroll-form-container -->
+        </div>
+        <!-- /.manager-card -->
+
+        <!-- 機能4: アルバイトメンバーの仕事評価 -->
+        <div class="manager-card">
+          <h2>👥 アルバイトメンバー業務評価</h2>
+
           <p class="card-desc">
             評価対象のメンバーを選択し、各業務の習熟度（◎/◯/△/▲/✕）を記録してください。
           </p>
 
-          <!-- メンバー選択 -->
+          <!-- メンバー選択（削除ボタンを撤去し、選択のみにスッキリ化） -->
           <div class="member-select-container">
             <label for="member-select"
               ><strong>評価するメンバー：</strong></label
             >
-            <select id="member-select" onchange="loadMemberEvaluation()">
-              <option value="">-- メンバーを選択 --</option>
-            </select>
-            <button
-              type="button"
-              class="delete-member-btn"
-              onclick="deleteCurrentMember()"
-            >
-              選択中のメンバーを削除
-            </button>
+            <div style="margin-top: 8px">
+              <select
+                id="member-select"
+                onchange="loadMemberEvaluation()"
+                style="width: 100%"
+              >
+                <option value="">-- メンバーを選択 --</option>
+              </select>
+            </div>
           </div>
 
-          <!-- 業務評価入力フォーム（JavaScriptで内部を生成） -->
+          <!-- 業務評価入力フォーム -->
           <div id="eval-form-container" style="display: none; margin-top: 20px">
             <form id="eval-form">
               <table class="eval-table">
@@ -96,7 +276,7 @@
               <div style="margin-top: 16px; text-align: right">
                 <button
                   type="button"
-                  class="save-btn"
+                  class="action-btn"
                   onclick="saveEvaluation()"
                 >
                   評価を保存する
@@ -106,7 +286,7 @@
           </div>
         </div>
 
-        <!-- 機能3: 全メンバーの評価一覧表 -->
+        <!-- 機能5: 全メンバーの評価一覧表 -->
         <div class="manager-card">
           <h2>📋 全メンバー業務習熟度一覧表</h2>
           <div id="matrix-container" style="overflow-x: auto">

@@ -57,6 +57,126 @@
   opacity: 0.85;
 }
 
+/* -----------------------------------
+   給料計算ツール用スタイル（追加分）
+----------------------------------- */
+.payroll-config-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.payroll-summary-box {
+  background-color: #fff0f5;
+  border: 1.5px solid var(--border-pink);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.summary-total-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.summary-total-line .total-amount {
+  font-size: 1.7rem;
+  color: var(--primary-pink);
+}
+
+.summary-breakdown {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  border-top: 1px dashed var(--border-pink);
+  padding-top: 8px;
+}
+
+.summary-breakdown span {
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.payroll-table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-pink);
+}
+
+.payroll-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+  font-size: 0.85rem;
+  background-color: #ffffff;
+}
+
+.payroll-table th, 
+.payroll-table td {
+  border: 1px solid #fce4ec;
+  padding: 8px 6px;
+  text-align: center;
+}
+
+.payroll-table th {
+  background-color: #fce4ec;
+  color: var(--primary-pink);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.payroll-table input[type="time"] {
+  padding: 4px;
+  border: 1px solid var(--border-pink);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  outline: none;
+  width: 100%;
+  text-align: center;
+}
+
+.payroll-table input[type="time"]:focus {
+  border-color: var(--primary-pink);
+}
+
+.out-cell {
+  color: var(--text-sub);
+}
+
+.pay-cell {
+  font-weight: bold;
+  color: var(--primary-pink);
+}
+
+.delete-row-btn {
+  background-color: var(--danger-red);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete-row-btn:hover {
+  opacity: 0.85;
+}
+
 /* 業務評価テーブル */
 .eval-table {
   width: 100%;
