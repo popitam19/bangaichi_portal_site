@@ -3,15 +3,15 @@
    ========================================================================== */
 
 :root {
-  --bg-color: #fce4ec;       /* 淡いピンクの背景色 */
-  --card-bg: #ffffff;       /* 白色の角丸カード */
-  --primary-pink: #e91e63;   /* ブランドメイン（濃いピンク） */
-  --primary-hover: #d81b60;  /* ボタンホバー時 */
-  --border-pink: #f48fb1;    /* カードや枠線のピンク */
-  --text-dark: #1e293b;      /* メインテキスト色 */
-  --text-sub: #64748b;       /* サブテキスト色 */
-  --danger-red: #ef4444;     /* 警告・削除色 */
-  --success-green: #107c41;   /* 成功・確定色 */
+  --bg-color: #fce4ec; /* 淡いピンクの背景色 */
+  --card-bg: #ffffff; /* 白色の角丸カード */
+  --primary-pink: #e91e63; /* ブランドメイン（濃いピンク） */
+  --primary-hover: #d81b60; /* ボタンホバー時 */
+  --border-pink: #f48fb1; /* カードや枠線のピンク */
+  --text-dark: #1e293b; /* メインテキスト色 */
+  --text-sub: #64748b; /* サブテキスト色 */
+  --danger-red: #ef4444; /* 警告・削除色 */
+  --success-green: #107c41; /* 成功・確定色 */
   --radius-card: 16px;
   --radius-btn: 30px;
   --shadow-card: 0 4px 12px rgba(233, 30, 99, 0.08);
@@ -22,7 +22,17 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN",
+    Meiryo,
+    sans-serif;
   background-color: var(--bg-color);
   color: var(--text-dark);
   margin: 0;
@@ -37,7 +47,9 @@ html {
 }
 
 /* 画面中央の最大幅を統一 (ポータル、管理画面、計算、ToDo共通) */
-header, main, .main-container {
+header,
+main,
+.main-container {
   width: 100%;
   max-width: 700px;
 }
@@ -58,7 +70,10 @@ h2 {
 }
 
 /* カードデザイン統一 */
-.card, .manager-card, .menu-card, .todo-card {
+.card,
+.manager-card,
+.menu-card,
+.todo-card {
   background-color: var(--card-bg);
   border: 2px solid var(--border-pink);
   border-radius: var(--radius-card);
@@ -123,7 +138,8 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.15);
 }
 
-button, .action-btn {
+button,
+.action-btn {
   background-color: var(--primary-pink);
   color: #ffffff;
   border: none;
@@ -132,13 +148,74 @@ button, .action-btn {
   font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
 }
 
-button:hover, .action-btn:hover {
+button:hover,
+.action-btn:hover {
   background-color: var(--primary-hover);
 }
 
-button:active, .action-btn:active {
+button:active,
+.action-btn:active {
   transform: scale(0.98);
+}
+
+/* -----------------------------------
+   共通：タブナビゲーション＆ボタン
+----------------------------------- */
+.tab-container,
+.manual-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+}
+
+.tab-btn {
+  background-color: #ffffff;
+  color: var(--primary-pink);
+  border: 1.5px solid var(--border-pink);
+  border-radius: var(--radius-btn);
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(233, 30, 99, 0.05);
+}
+
+.tab-btn:hover {
+  background-color: var(--bg-color);
+  border-color: var(--primary-pink);
+  transform: translateY(-1px);
+}
+
+.tab-btn.active {
+  background-color: var(--primary-pink);
+  color: #ffffff;
+  border-color: var(--primary-pink);
+  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.25);
+}
+
+/* -----------------------------------
+   共通：初期案内メッセージカード
+----------------------------------- */
+.default-message {
+  text-align: center;
+  color: var(--text-sub);
+  padding: 32px 20px;
+}
+
+.default-message p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.default-message.hidden {
+  display: none;
 }
