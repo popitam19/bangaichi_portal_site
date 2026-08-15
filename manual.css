@@ -64,3 +64,64 @@
     transform: translateY(0);
   }
 }
+
+/* --- 注意ボックス（サーモンピンク系） --- */
+.alert-box {
+  background-color: #fff1f2;       /* ほんのり赤みのあるピンク */
+  border: 1.5px solid #fecdd3;     /* 枠線 */
+  border-left: 5px solid #e11d48;  /* 左側の強調ライン */
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+}
+
+.alert-title {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #881337;
+  margin-bottom: 8px;
+}
+
+.alert-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #9f1239;
+  line-height: 1.5;
+}
+
+.alert-text strong {
+  color: #881337;
+}
+
+/* --- 用意するもの（くすみピンク・ニュートラル系） --- */
+.prep-box {
+  background-color: #fdf2f8;       /* ごく薄いベリーピンク */
+  border: 1.5px solid #fbcfe8;     /* 淡いピンク枠 */
+  border-left: 5px solid #db2777;  /* 落ち着いたマゼンタピンク */
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+}
+
+.prep-title {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #831843;
+  margin-bottom: 8px;
+}
+
+.prep-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.prep-tag {
+  background-color: #ffffff;
+  color: #831843;
+  border: 1px solid #f472b6;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
