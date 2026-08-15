@@ -24,7 +24,8 @@
   transition: all 0.2s ease;
 }
 
-.tab-btn.active, .tab-btn:hover {
+.tab-btn.active,
+.tab-btn:hover {
   background-color: var(--primary-pink);
   color: #ffffff;
   border-color: var(--primary-pink);
@@ -110,4 +111,20 @@
 .todo-item.completed .task-text {
   text-decoration: line-through;
   color: #94a3b8;
+}
+
+/* 初期案内メッセージカード */
+.default-message {
+  text-align: center;
+  color: var(--text-sub);
+  padding: 32px 20px;
+}
+
+.default-message p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.default-message.hidden {
+  display: none;
 }

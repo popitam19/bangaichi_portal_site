@@ -30,8 +30,8 @@
       <button class="tab-btn" onclick="switchTab('night')">夜21時頃</button>
       <button class="tab-btn" onclick="switchTab('closing-soon')">閉店間近</button>
       <button class="tab-btn" onclick="switchTab('closed')">閉店後</button>
-    </div>
-
+    </div>  
+    
     <!-- 一括解除アクションエリア -->
     <div class="action-bar">
       <button type="button" class="reset-btn" onclick="resetAllChecks()">
@@ -41,6 +41,11 @@
 
     <!-- ToDoリスト表示エリア（時間帯ごとにグループ化） -->
     <div class="card todo-card">
+
+      <!-- 初期案内メッセージ -->
+      <div id="default-message" class="default-message">
+        <p>上のボタンから確認したい業務を選択してください。</p>
+      </div>
 
       <!-- 夜21時頃 -->
       <div id="night" class="todo-group">

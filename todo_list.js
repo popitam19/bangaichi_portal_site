@@ -72,3 +72,28 @@ function loadTaskStates() {
     }
   });
 }
+
+/**
+ * 時間帯タブの切り替え
+ */
+function switchTab(groupId, event) {
+  // 初期案内メッセージを非表示にする
+  const defaultMsg = document.getElementById('default-message');
+  if (defaultMsg) {
+    defaultMsg.classList.add('hidden');
+  }
+
+  // すべてのタブボタンとグループを非アクティブ化
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.todo-group').forEach(group => group.classList.remove('active'));
+
+  // 選択されたタブとグループを有効化
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('active');
+  }
+  
+  const targetGroup = document.getElementById(groupId);
+  if (targetGroup) {
+    targetGroup.classList.add('active');
+  }
+}
