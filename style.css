@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ポータルサイト専用スタイル (style.css)
+   ポータルサイト専用スタイル
    ========================================================================== */
 
 /* ヘッダー固有 */
@@ -24,7 +24,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .menu-card:hover {

@@ -417,7 +417,8 @@ const updateCheckTotal = () => {
   const total = val1 + val2 - val3 + val4 + val5 + val6 + val7;
 
   // 既存のyen関数を使って、3桁カンマ区切りで画面に表示
-  document.getElementById("checkTotal").textContent = `確認用合計：${yen(total)}`;
+  document.getElementById("checkTotal").textContent =
+    `確認用合計：${yen(total)}`;
 };
 
 // クラス名「check-input」がついたすべての入力欄に、入力時の自動計算イベントを設定
