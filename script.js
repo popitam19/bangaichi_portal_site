@@ -5,7 +5,7 @@
 function navigateTo(url) {
   // 指定したページはそのまま遷移、指定していないページは「準備中」を表示する
   if (
-    url === 'bangaiti_calc-site.html' ||   
+    url === 'cash_register_closing.html' ||   
     url === 'todo_list.html' || 
     url === 'manual.html'
   ) {
