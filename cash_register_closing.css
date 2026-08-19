@@ -117,3 +117,11 @@ table.result-table:has(#splitTableBody)::before {
     margin-bottom: 8px;
   }
 }
+
+/* テーブルの横スクロールラッパー */
+.table-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 8px;
+}

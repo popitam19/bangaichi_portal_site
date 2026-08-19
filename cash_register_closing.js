@@ -16,7 +16,7 @@ function addEnvelopeRow(tbody, label, rolls, pieces, amount) {
   tbody.appendChild(tr);
 }
 
-/* ===== 追加：レジ金/売上金 の枚数表を描画する関数 ===== */
+/* レジ金/売上金 の枚数表を描画する関数 */
 function renderSplitTable(tbodyId, changeCounts, salesCounts) {
   const tb = document.getElementById(tbodyId);
   if (!tb) return;
@@ -240,8 +240,10 @@ document.getElementById("calc").onclick = () => {
 
   // 表示エリア
   document.getElementById("resultArea").style.display = "block";
+  document.getElementById("checkArea").style.display = "block";
   const tbody = document.getElementById("envelopeRows");
   tbody.innerHTML = "";
+
 
   if (!plan.ok) {
     // 不可能：棒金だけレジ金、他は全部売上として表示
@@ -266,7 +268,7 @@ document.getElementById("calc").onclick = () => {
     addEnvelopeRow(tbody, "5,000円", "", `0枚`, 0);
     addEnvelopeRow(tbody, "10,000円", "", `0枚`, 0);
 
-    /* ===== 追加：レジ金/売上金 の枚数表（不可能時） ===== */
+    /* レジ金/売上金 の枚数表（不可能時） */
     renderSplitTable(
       "splitTableBody",
       {
@@ -342,7 +344,7 @@ document.getElementById("calc").onclick = () => {
   document.getElementById("salesOnly").textContent =
     `売上金合計：${yen(salesTotal)}`;
 
-  // 封筒に入れること（レジ金）表：指定形式
+  // レジ金管理表
   addEnvelopeRow(tbody, "10円", `${bar10}本`, `${ex10}枚`, amtBar10 + amt10);
   addEnvelopeRow(tbody, "50円", `${bar50}本`, `${ex50}枚`, amtBar50 + amt50);
   addEnvelopeRow(
@@ -372,7 +374,7 @@ document.getElementById("calc").onclick = () => {
     ? "注意: " + warn.join(" / ")
     : "";
 
-  /* ===== 追加：レジ金/売上金 の枚数表（成功時） ===== */
+  /* レジ金/売上金 の枚数表（成功時）*/
   renderSplitTable(
     "splitTableBody",
     {
@@ -403,7 +405,7 @@ document.getElementById("calc").onclick = () => {
   }
 };
 
-/* ===== 追加：整合性の確認用 7項目の自動集計ロジック ===== */
+/* 整合性の確認用 7項目の自動集計ロジック */
 const updateCheckTotal = () => {
   const val1 = getInt("check1");
   const val2 = getInt("check2");
