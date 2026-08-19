@@ -26,6 +26,7 @@
     <!-- 業務選択ボタンエリア -->
     <nav class="manual-nav">
       <button type="button" class="tab-btn" data-target="task-register-close">レジ締め</button>
+      <button type="button" class="tab-btn" data-target="task-sales-check">売上確認</button>
       <button type="button" class="tab-btn" data-target="task-register-minus">レジマイナス</button>
     </nav>
 
@@ -57,12 +58,12 @@
             <div class="step-card">
             <span class="step-badge">STEP 1</span>
             <h3>レジ精算</h3>
-            <p>レジの「業務選択」→「」→「」→「」→「」→「」を押して精算レシートを取得する</p>
+            <p>レジの「業務選択」→「7.精算業務」→「1.精算組合せレポート」→「責任者コード：1」→「確定」→「確定」→「実行」を押して精算レシートを取得する</p>
           </div>
           <div class="step-card">
             <span class="step-badge">STEP 2</span>
             <h3>予備金30,000円の確認</h3>
-            <p>レジ内に入っている予備金30,000円があるか確認 → なかったら1,000円札×30枚になるようにする</p>
+            <p>レジ内に入っている予備金30,000円があるか確認 → 無かったら1,000円札×30枚になるようにする</p>
           </div>
           <div class="step-card">
             <span class="step-badge">STEP 3</span>
@@ -73,7 +74,10 @@
             <span class="step-badge">STEP 4</span>
             <h3>封筒作成</h3>
             <p>緑の封筒に「現金」「レジP」「paypay」「auPAY」「カード」「出金」を記入</p>
-            <p>緑の封筒に売上金・精算レシート・会計レシート・出金レシート・長いレシートを入れ、ホチキスで止めてキッチンに持っていく</p>
+            <p>・paypayおよびauPAYは、iPad内の専用アプリを開くと表示される金額を記入</p>
+            <p>・カードは、カード決済端末の「」→「」で表示される金額を記入</p>
+            <p>・出金は、出金レシートの「値段」および「購入したもの」を記入</p>
+            <p>「STEP 1 レジ精算」から少し時間が経つと、長いレシートが出てくる</p>
           </div>
           <div class="step-card">
             <span class="step-badge">STEP 5</span>
@@ -83,9 +87,28 @@
           <div class="step-card">
             <span class="step-badge">STEP 6</span>
             <h3>終了</h3>
-            <p>レジを元に戻して、電源を切って終了</p>
-            <p>電源の切り方：「」→「」→「」</p>            
+            <p>レジを元に戻して、電源を切る</p>
+            <p>緑の封筒に売上金・精算レシート・会計レシート・出金レシート・長いレシートを入れ、ホチキスで止めてキッチンに持っていく</p>            
+            <p>電源の切り方：「精算完了しました。：確認」→「終 メインメニューへ」→「終 終了業務」→「終了業務を実行しますか？：実行」</p>            
           </div>                   
+        </div>
+      </section>
+
+      <!-- 売上確認 -->
+        <section id="task-sales-check" class="card manual-item">
+          <h2>📊 売上確認</h2>
+
+          <div class="manual-steps">
+            <div class="step-card">
+            <span class="step-badge">STEP 1</span>
+            <h3>現時点での売上の確認をする</h3>
+            <p>レジの「業務選択」→「4.点検業務」→「4.売計点検」を押す</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">STEP 2</span>
+            <h3>レジ画面に戻る</h3>
+            <p>レジの「終」→「1.レジ画面」を押す</p>
+          </div>                
         </div>
       </section>
 
@@ -109,9 +132,20 @@
           </div>
           <div class="step-card">
             <span class="step-badge">STEP 2</span>
-            <h3>選択</h3>
+            <h3>レジマイナス処理をするオーダーの選択</h3>
             <p>マイナスしたい値段と同じオーダーを選択 → レジマイナスの実行</p>
+            <p>※この時、値段が同じであればオーダー内容が違っても良い</p>
           </div>
+          <div class="step-card">
+            <span class="step-badge">STEP 3</span>
+            <h3>レジ画面に戻る</h3>
+            <p>レジの「終」→「1.レジ画面」を押す</p>
+          </div>           
+          <div class="step-card">
+            <span class="step-badge">STEP 4</span>
+            <h3>食券処理</h3>
+            <p>レジマイナス処理が済んだ食券は、レジ下引き出しに入っているファイル内の紙にスティックのりで貼っておく</p>
+          </div>          
         </div>
       </section>
 
