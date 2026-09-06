@@ -125,3 +125,37 @@ table.result-table:has(#splitTableBody)::before {
   -webkit-overflow-scrolling: touch;
   margin-top: 8px;
 }
+
+/* 封筒のイメージと説明文のレイアウト */
+
+.envelope-flow-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.envelope-flow-text {
+  flex: 1;
+}
+
+.envelope-image-wrapper {
+  width: 120px;
+  flex-shrink: 0;
+  text-align: center;
+  position: relative;
+  right: 30px;
+}
+
+/* 「完成イメージ」の文言スタイル */
+.envelope-label {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--primary-pink);
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+}
+
+.envelope-image-wrapper img {
+  width: 100%;
+  display: block;
+}
