@@ -123,8 +123,10 @@ table.result-table:has(#splitTableBody)::before {
   }
 
   .envelope-image-wrapper {
-    right: 0;           /* スマホでは左へのズレをリセット */
-    margin-top: 12px;   /* 説明文との間に適度な余白を作る */
+    width: 110px;
+    max-width: 100%;
+    right: 0; 
+    margin-top: 16px;
   }
 }
 
