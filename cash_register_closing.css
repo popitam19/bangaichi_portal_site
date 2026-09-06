@@ -117,16 +117,28 @@ table.result-table:has(#splitTableBody)::before {
     margin-bottom: 8px;
   }
 
+  /* ▼ 封筒まわりのスマホレイアウト調整 ▼ */
   .envelope-flow-container {
-    flex-direction: column; /* スマホでは縦並びにする */
-    align-items: center;    /* 画像を中央に寄せる */
+    flex-direction: column; /* 縦並び */
+    align-items: center;    /* 中央揃え */
   }
 
   .envelope-image-wrapper {
-    width: 110px;
-    max-width: 100%;
-    right: 40px; 
-    margin-top: 16px;
+    width: 90px;            /* ★縦長画像なので幅90px程度がスマホでスッキリ収まります */
+    margin: 16px auto 24px; /* 上に16px、下に24pxの余白を設けて中央配置 */
+    position: static;       /* right等の位置ズレを完全に解除 */
+  }
+
+  .envelope-label {
+    font-size: 12px;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  .envelope-image-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;     /* お好みで少し角丸にすると綺麗になじみます */
   }
 }
 
