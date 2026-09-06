@@ -125,7 +125,7 @@ table.result-table:has(#splitTableBody)::before {
   .envelope-image-wrapper {
     width: 110px;
     max-width: 100%;
-    right: 0; 
+    right: 40px; 
     margin-top: 16px;
   }
 }
