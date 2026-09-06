@@ -102,46 +102,6 @@ table.result-table:has(#splitTableBody)::before {
   margin-bottom: 6px;
 }
 
-/* スマホ対応 */
-@media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  label {
-    font-weight: 600;
-    margin-top: 8px;
-  }
-  .input-with-unit {
-    max-width: 100%;
-    margin-bottom: 8px;
-  }
-
-  /* ▼ 封筒まわりのスマホレイアウト調整 ▼ */
-  .envelope-flow-container {
-    flex-direction: column; /* 縦並び */
-    align-items: center;    /* 中央揃え */
-  }
-
-  .envelope-image-wrapper {
-    width: 90px;            /* ★縦長画像なので幅90px程度がスマホでスッキリ収まります */
-    margin: 16px auto 24px; /* 上に16px、下に24pxの余白を設けて中央配置 */
-    position: static;       /* right等の位置ズレを完全に解除 */
-  }
-
-  .envelope-label {
-    font-size: 12px;
-    margin-bottom: 6px;
-    text-align: center;
-  }
-
-  .envelope-image-wrapper img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;     /* お好みで少し角丸にすると綺麗になじみます */
-  }
-}
-
 /* テーブルの横スクロールラッパー */
 .table-scroll-wrapper {
   width: 100%;
@@ -182,4 +142,44 @@ table.result-table:has(#splitTableBody)::before {
 .envelope-image-wrapper img {
   width: 100%;
   display: block;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  label {
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  .input-with-unit {
+    max-width: 100%;
+    margin-bottom: 8px;
+  }
+
+  /* ▼ 封筒まわりのスマホレイアウト調整 ▼ */
+  .envelope-flow-container {
+    flex-direction: column; /* 縦並び */
+    align-items: center;    /* 中央揃え */
+  }
+
+  .envelope-image-wrapper {
+    width: 90px;            /* ★縦長画像なので幅90px程度がスマホでスッキリ収まります */
+    margin: 16px auto 24px; /* 上に16px、下に24pxの余白を設けて中央配置 */
+    position: static;       /* right等の位置ズレを完全に解除 */
+  }
+
+  .envelope-label {
+    font-size: 12px;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  .envelope-image-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;     /* お好みで少し角丸にすると綺麗になじみます */
+  }
 }
