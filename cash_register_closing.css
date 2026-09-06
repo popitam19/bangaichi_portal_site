@@ -116,6 +116,16 @@ table.result-table:has(#splitTableBody)::before {
     max-width: 100%;
     margin-bottom: 8px;
   }
+
+  .envelope-flow-container {
+    flex-direction: column; /* スマホでは縦並びにする */
+    align-items: center;    /* 画像を中央に寄せる */
+  }
+
+  .envelope-image-wrapper {
+    right: 0;           /* スマホでは左へのズレをリセット */
+    margin-top: 12px;   /* 説明文との間に適度な余白を作る */
+  }
 }
 
 /* テーブルの横スクロールラッパー */
